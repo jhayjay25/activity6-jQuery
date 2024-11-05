@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css"> 
+    <link rel="stylesheet" href="../css/custom.css">
+
+    <style>
+      .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+      }
+      /* Autocomplete Input Field */
+#tags {
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#tags:focus {
+    border-color: #ff007f;
+    box-shadow: 0px 0px 5px rgba(255, 0, 127, 0.5);
+}
+
+/* Autocomplete Dropdown Menu */
+.ui-autocomplete {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #666;
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Autocomplete Item */
+.ui-menu-item {
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.ui-menu-item:hover {
+    background-color: #ff007f;
+    color: #fff;
+}
+
+/* Highlighted Text within Autocomplete */
+.ui-autocomplete .ui-state-focus {
+    background-color: #ff007f;
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* Scrollbar Styles for Dropdown */
+.ui-autocomplete::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ui-autocomplete::-webkit-scrollbar-track {
+    background: #555;
+    border-radius: 5px;
+}
+
+.ui-autocomplete::-webkit-scrollbar-thumb {
+    background-color: #ff007f;
+    border-radius: 5px;
+    border: 2px solid #555;
+}
+
+.ui-autocomplete::-webkit-scrollbar-thumb:hover {
+    background-color: #ff4db8;
+}
+
+      </style>
+</head>
+<header>
+  <h1>jQuery UI Autocomplete - Scrollable results</h1>
+</header>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-1">
+            
+              <h3>widget</h3>
+                <ul><a href="../Accordion.html">Accordion</a></ul>
+                <ul><a href="/pages/Autocomplete.html">Autocomplete</a></ul>
+                <ul><a href="/pages/Button.html">Button</a></ul>
+                <ul><a href="/pages/Checkboxradio.html">Checkboxradio</a></ul>
+                <ul><a href="/pages/Controlgroup.html">Controlgroup</a></ul>
+                <ul><a href="/pages/Datepicker.html">Datepicker</a></ul>
+                <ul><a href="/pages/Dialog.html">Dialog</a></ul>
+                <ul><a href="/pages/Menu.html">Menu</a></ul>
+                <ul><a href="/pages/Progressbar.html">Progressbar</a></ul>
+                <ul><a href="/pages/Selectmenu.html">Selectmenu</a></ul>
+                <ul><a href="/pages/Slider.html">Slider</a></ul>
+                <ul><a href="/pages/Spinner.html">Spinner</a></ul>
+                <ul><a href="/pages/Tabs.html">Tabs</a></ul>
+                <ul><a href="/pages/Tooltip.html">Tooltip</a></ul>
+            
+        </div>
+            
+            
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
+ 
+     
+        </div>
+    </div>  
+    
+    <footer>
+        <p>College of Information and Computing Sciences &copy; 2022</p>  
+    </footer>
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        var availableTags = [
+          "ActionScript",
+          "AppleScript",
+          "Asp",
+          "BASIC",
+          "C",
+          "C++",
+          "Clojure",
+          "COBOL",
+          "ColdFusion",
+          "Erlang",
+          "Fortran",
+          "Groovy",
+          "Haskell",
+          "Java",
+          "JavaScript",
+          "Lisp",
+          "Perl",
+          "PHP",
+          "Python",
+          "Ruby",
+          "Scala",
+          "Scheme"
+        ];
+        $( "#tags" ).autocomplete({
+          source: availableTags
+        });
+      } );
+      </script>
+</body>
+</html>

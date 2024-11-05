@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    
+    <style>
+      
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+       
+        .col-1 h3 {
+            color: #ff66b2;
+        }
+
+        .col-1 a {
+            color: #00ccff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .col-1 a:hover {
+            color: #ff66b2;
+        }
+
+        #progressbar {
+            margin-top: 20px;
+            height: 20px;
+            background: #1a1a1d;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-label {
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 1px 1px 0 #222;
+        }
+
+        #dialog {
+            background: linear-gradient(135deg, #7e6abf, #4c3f91);
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .down {
+            background-color: #1a1a1d;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #downloadButton {
+            background: linear-gradient(135deg, #ff66b2, #ff99cc);
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #downloadButton:hover {
+            background: linear-gradient(135deg, #ff99cc, #ff66b2);
+        }
+  </style>
+</head>
+<header>
+    <h1>Query UI Progressbar - Download Dialog</h1>
+</header>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                
+                    <h3>Widget</h3>
+                    <ul><a href="../Accordion.html">Accordion</a></ul>
+                    <ul><a href="/pages/Autocomplete.html">Autocomplete</a></ul>
+                    <ul><a href="/pages/Button.html">Button</a></ul>
+                    <ul><a href="/pages/Checkboxradio.html">Checkboxradio</a></ul>
+                    <ul><a href="/pages/Controlgroup.html">Controlgroup</a></ul>
+                    <ul><a href="/pages/Datepicker.html">Datepicker</a></ul>
+                    <ul><a href="/pages/Dialog.html">Dialog</a></ul>
+                    <ul><a href="/pages/Menu.html">Menu</a></ul>
+                    <ul><a href="/pages/Progressbar.html">Progressbar</a></ul>
+                    <ul><a href="/pages/Selectmenu.html">Selectmenu</a></ul>
+                    <ul><a href="/pages/Slider.html">Slider</a></ul>
+                    <ul><a href="/pages/Spinner.html">Spinner</a></ul>
+                    <ul><a href="/pages/Tabs.html">Tabs</a></ul>
+                    <ul><a href="/pages/Tooltip.html">Tooltip</a></ul>
+                
+            </div>
+            <div class="down" id="dialog" title="File Download">
+                <div class="progress-label">Starting download...</div>
+                <div id="progressbar"></div>
+            </div>
+            <div>
+                <button id="downloadButton">Start Download</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>College of Information and Computing Sciences &copy; 2022</p>
+    </footer>
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            var progressTimer,
+                progressbar = $("#progressbar"),
+                progressLabel = $(".progress-label"),
+                dialogButtons = [{
+                    text: "Cancel Download",
+                    click: closeDownload
+                }],
+                dialog = $("#dialog").dialog({
+                    autoOpen: false,
+                    closeOnEscape: false,
+                    resizable: false,
+                    buttons: dialogButtons,
+                    open: function() {
+                        progressTimer = setTimeout(progress, 2000);
+                    },
+                    beforeClose: function() {
+                        downloadButton.button("option", {
+                            disabled: false,
+                            label: "Start Download"
+                        });
+                    }
+                }),
+                downloadButton = $("#downloadButton")
+                    .button()
+                    .on("click", function() {
+                        $(this).button("option", {
+                            disabled: true,
+                            label: "Downloading..."
+                        });
+                        dialog.dialog("open");
+                    });
+
+            progressbar.progressbar({
+                value: false,
+                change: function() {
+                    progressLabel.text("Current Progress: " + progressbar.progressbar("value") + "%");
+                },
+                complete: function() {
+                    progressLabel.text("Complete!");
+                    dialog.dialog("option", "buttons", [{
+                        text: "Close",
+                        click: closeDownload
+                    }]);
+                    $(".ui-dialog button").last().trigger("focus");
+                }
+            });
+
+            function progress() {
+                var val = progressbar.progressbar("value") || 0;
+                progressbar.progressbar("value", val + Math.floor(Math.random() * 3));
+                if (val <= 99) {
+                    progressTimer = setTimeout(progress, 50);
+                }
+            }
+
+            function closeDownload() {
+                clearTimeout(progressTimer);
+                dialog.dialog("option", "buttons", dialogButtons).dialog("close");
+                progressbar.progressbar("value", false);
+                progressLabel.text("Starting download...");
+                downloadButton.trigger("focus");
+            }
+        });
+    </script>
+</body>
+</html>

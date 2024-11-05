@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css"> 
+    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+
+    <style>
+      #zoom-button {
+    width: 55px;
+    background: linear-gradient(135deg, #7e6abf, #4c3f91); /* Purple gradient */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#fontname-button,
+#fontsize-button {
+    width: 45px;
+    background: linear-gradient(135deg, #7e6abf, #4c3f91);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#forecolor-button {
+    width: 50px;
+    background: linear-gradient(135deg, #ff99cc, #ff66b2); /* Pink gradient */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#hilitecolor-button {
+    width: 70px;
+    background: linear-gradient(135deg, #00ccff, #0066ff); /* Blue gradient */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#bold {
+    font-weight: bold;
+    color: #7e6abf; /* Purple */
+}
+
+#italic {
+    font-style: italic;
+    color: #ff66b2; /* Pink */
+}
+
+#underline {
+    text-decoration: underline;
+    color: #00ccff; /* Blue */
+}
+
+.toolbar {
+    font-size: 0.75em;
+    color: #d0cde1;
+    margin-left: 50px;
+}
+
+#page {
+    width: 440px;
+    left: 50%;
+    position: relative;
+    margin-left: -226px;
+    height: 450px;
+    border: 1px solid #888;
+    background: #1a1a1d;
+    box-shadow: 7px 7px 3px rgba(0, 0, 0, 0.3);
+    font-size: 11px;
+    font-family: "Lucida Grande", sans-serif;
+    zoom: 100%;
+    padding: 5px;
+    white-space: pre-line;
+    overflow: scroll;
+    color: #ffffff;
+}
+
+.wrap {
+    width: 588px;
+}
+.col-cen{
+  align-items: center;
+  justify-content: center;
+  margin-left: 120px;
+  object-fit:contain;
+}
+footer{
+  margin: 0 auto;
+}
+
+    </style>
+</head>
+<header>
+  <h1>jQuery UI Controlgroup - Toolbar</h1>
+</header>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-1">
+            <h3>widget</h3>
+                <ul><a href="../Accordion.html">Accordion</a></ul>
+                <ul><a href="/pages/Autocomplete.html">Autocomplete</a></ul>
+                <ul><a href="/pages/Button.html">Button</a></ul>
+                <ul><a href="/pages/Checkboxradio.html">Checkboxradio</a></ul>
+                <ul><a href="/pages/Controlgroup.html">Controlgroup</a></ul>
+                <ul><a href="/pages/Datepicker.html">Datepicker</a></ul>
+                <ul><a href="/pages/Dialog.html">Dialog</a></ul>
+                <ul><a href="/pages/Menu.html">Menu</a></ul>
+                <ul><a href="/pages/Progressbar.html">Progressbar</a></ul>
+                <ul><a href="/pages/Selectmenu.html">Selectmenu</a></ul>
+                <ul><a href="/pages/Slider.html">Slider</a></ul>
+                <ul><a href="/pages/Spinner.html">Spinner</a></ul>
+                <ul><a href="/pages/Tabs.html">Tabs</a></ul>
+                <ul><a href="/pages/Tooltip.html">Tooltip</a></ul>
+            
+        </div>
+        <div class="col-cen"> <div class="wrap">
+          <div class="toolbar">
+              <button id="print">Print</button>
+              <button id="undo">Undo</button>
+              <button id="redo">Redo</button>
+              <select id="zoom">
+                <option selected="" disabled="">Zoom</option>
+                <option>50%</option>
+                <option>75%</option>
+                <option>90%</option>
+                <option>100%</option>
+                <option>125%</option>
+                <option>150%</option>
+                <option>200%</option>
+              </select>
+              <select id="fontname">
+                <option selected="" disabled="">Font</option>
+                <option>Arial</option>
+                <option>Comic Sans MS</option>
+                <option>Courier New</option>
+                <option>Georgia</option>
+                <option>Impact</option>
+                <option>Lucida Grande</option>
+                <option>Times New Roman</option>
+                <option>Verdana</option>
+              </select>
+              <select id="fontsize">
+                <option selected="" disabled="">Size</option>
+                <option value="1">8px</option>
+                <option value="2">9px</option>
+                <option value="3">10px</option>
+                <option value="4">11px</option>
+                <option value="5">12px</option>
+                <option value="6">14px</option>
+                <option value="7">18px</option>
+                <option value="8">24px</option>
+                <option value="9">30px</option>
+                <option value="10">36px</option>
+              </select>
+              <select id="hilitecolor" title="Background color">
+                <option selected="" disabled="">Highlight</option>
+                <option value="white">None</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="grey">Grey</option>
+                <option value="purple">Purple</option>
+                <option value="orange">Orange</option>
+              </select>
+              <select id="forecolor" title="Color">
+                <option selected="" disabled="">Color</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="#ccc">Grey</option>
+                <option value="purple">Purple</option>
+                <option value="orange">Orange</option>
+              </select>
+              <button id="bold">B</button>
+              <button id="italic">I</button>
+              <button id="underline">U</button>
+         
+          </div>
+          <pre id="page" contenteditable="true"> The Teenage Years
+          BY Sarah Gray
+         
+          We learn from our mistakes,
+          From the wrong turns we take,
+          From the fake friends we make,
+          And from the times we almost break.
+          
+          Our mistakes help us grow,
+          But at the time, we didn't know.
+          We didn't want our weakness to show.
+          At the time, we couldn't let them know.
+          
+          Our fake friends were there,
+          But they didn't actually care
+          Our secrets they would share,
+          And now as we pass, they just stare.
+          
+          Not breaking means you're strong.
+          You'd know where you went wrong,
+          As if you weren't waiting so long
+          To explain yourself, but stay strong.
+          
+          So here's to the liars and traitors,
+          All the wannabes and haters
+          And learning from our mistakes
+          And learning to spot the fakes.
+          
+          Here's to being a teen
+          Live it up, 'cause we're living the dream.
+          </pre>
+        </div>
+      </div>
+    <footer>
+        <p>College of Information and Computing Sciences &copy; 2022</p>  
+    </footer>
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        var page = $( "#page" );
+        var basicControls = [ "#print", "#bold", "#italic", "#undo", "#redo" ];
+        var valueControls = [ "#fontsize", "#forecolor", "#hilitecolor", "#backcolor", "fontname" ];
+     
+        $( "#print" ).button({
+          "icon": "ui-icon-print",
+          "showLabel": false
+        });
+        $( "#redo" ).button({
+          "icon": "ui-icon-arrowreturnthick-1-e",
+          "showLabel": false
+        });
+        $( "#undo" ).button({
+          "icon": "ui-icon-arrowreturnthick-1-w",
+          "showLabel": false
+        });
+     
+        $( ".toolbar" ).controlgroup();
+        $( "#zoom" ).on( "selectmenuchange", function() {
+          page.css({ "zoom": $( this ).val() });
+        })
+        $( basicControls.concat( valueControls ).join( ", " ) ).on( "click change selectmenuchange",
+          function() {
+            document.execCommand(
+              this.id,
+              false,
+              $( this ).val()
+            );
+          } );
+        $( "form" ).on( "submit", function( event ) {
+          event.preventDefault();
+        });
+      } );
+      </script>
+</body>
+</html>

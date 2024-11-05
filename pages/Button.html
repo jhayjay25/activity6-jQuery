@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css"> 
+    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+</head>
+<style>
+.wid{
+  float: right;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  object-fit:scale-down;
+}
+
+.wid button {
+    background-color: #7e18ae;
+    color: #ffffff; 
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+    border-style: solid;
+    border-color: aqua;
+}
+
+.wid button:hover {
+    background-color: #8800ff;
+    transform: translateY(-3px); 
+}
+
+.wid button:active {
+    background-color: #a23e0c; 
+    transform: translateY(1px); 
+}
+
+</style>
+<header>
+  <h1>jQuery UI Button - Default functionality</h1>
+</header>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-1">
+            <h3>widget</h3>
+                <ul><a href="../Accordion.html">Accordion</a></ul>
+                <ul><a href="/pages/Autocomplete.html">Autocomplete</a></ul>
+                <ul><a href="/pages/Button.html">Button</a></ul>
+                <ul><a href="/pages/Checkboxradio.html">Checkboxradio</a></ul>
+                <ul><a href="/pages/Controlgroup.html">Controlgroup</a></ul>
+                <ul><a href="/pages/Datepicker.html">Datepicker</a></ul>
+                <ul><a href="/pages/Dialog.html">Dialog</a></ul>
+                <ul><a href="/pages/Menu.html">Menu</a></ul>
+                <ul><a href="/pages/Progressbar.html">Progressbar</a></ul>
+                <ul><a href="/pages/Selectmenu.html">Selectmenu</a></ul>
+                <ul><a href="/pages/Slider.html">Slider</a></ul>
+                <ul><a href="/pages/Spinner.html">Spinner</a></ul>
+                <ul><a href="/pages/Tabs.html">Tabs</a></ul>
+                <ul><a href="/pages/Tooltip.html">Tooltip</a></ul>
+        </div>
+        <dev class="wid">
+          <div class="widget">
+          <h1>Widget</h1>
+          <button>Button with only text</button>
+          <button>Button with icon only</button>
+          <button>Button with icon on the left</button>
+          <button>Button with icon on the right</button>
+          <button>Button with icon on the top</button>
+          <button>Button with icon on the bottom</button>
+        </div>
+        <div class="css">
+          <h1>CSS</h1>
+          <button class="ui-button ui-widget ui-corner-all">
+            Button with only text
+          </button>
+          <button class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Button with icon only">
+            <span class="ui-icon ui-icon-gear"></span> Button with icon only
+          </button>
+          <button class="ui-button ui-widget ui-corner-all">
+            <span class="ui-icon ui-icon-gear"></span> Button with icon on the left
+          </button>
+          <button class="ui-button ui-widget ui-corner-all">
+            Button with icon on the right <span class="ui-icon ui-icon-gear"></span>
+          </button>
+          <button class="ui-button ui-widget ui-corner-all">
+            <span class="ui-icon ui-icon-gear ui-widget-icon-block"></span> Button with icon on the top
+          </button>
+          <button class="ui-button ui-widget ui-corner-all">
+            Button with icon on the bottom <span class="ui-icon ui-icon-gear ui-widget-icon-block"></span>
+          </button>
+        </div>
+           
+        </div>
+    </div>
+  </dev>  
+    
+    <footer>
+        <p>College of Information and Computing Sciences &copy; 2022</p>  
+    </footer>
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        $( ".widget button" )
+          .eq( 0 ).button()
+          .end().eq( 1 ).button( {
+            icon: "ui-icon-gear",
+            showLabel: false
+          } ).end().eq( 2 ).button( {
+            icon: "ui-icon-gear"
+          } ).end().eq( 3 ).button( {
+            icon: "ui-icon-gear",
+            iconPosition: "end"
+          } ).end().eq( 4 ).button( {
+            icon: "ui-icon-gear",
+            iconPosition: "top"
+          } ).end().eq( 5 ).button( {
+            icon: "ui-icon-gear",
+            iconPosition: "bottom"
+          } );
+      } );
+      </script>
+</body>
+</html>

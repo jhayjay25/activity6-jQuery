@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css"> 
+    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+
+    <style>
+      .ui-menu { width: 200px; }
+      .ui-widget-header { padding: 0.2em; }
+      /* Menu Container Styling */
+      .menu-container {
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            background-color: #f4ecec;
+            overflow: hidden;
+        }
+
+        /* jQuery UI Menu Styling */
+        .ui-menu {
+            width: 100%;
+            background-color: #5a4f4f;
+            border: none;
+            border-radius: 12px;
+            padding: 0;
+        }
+
+        /* Menu Item Styling */
+        .ui-menu-item {
+            font-size: 18px;
+            padding: 12px 20px;
+            color: #000000;
+            transition: background-color 0.3s, color 0.3s;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        /* Hover and Active Item Styling */
+        .ui-menu-item:hover,
+        .ui-menu-item-wrapper:hover {
+            background-color: #22587d;
+            color: #f9f9f9;
+        }
+
+        /* Disabled Items */
+        .ui-state-disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Submenu Styling */
+        .ui-menu .ui-menu {
+            background-color: #695d5d;
+            border-left: 3px solid #851a71;
+        }
+
+        /* Last item no border */
+        .ui-menu-item:last-child {
+            border-bottom: none;
+        }
+        .ty{
+          color: rgb(237, 237, 237);
+        }
+
+      </style>
+</head>
+<header>
+  <h1>jQuery UI Menu - Categories</h1>
+</header>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-1">
+            <h3>widget</h3>
+                <ul><a href="../Accordion.html">Accordion</a></ul>
+                <ul><a href="/pages/Autocomplete.html">Autocomplete</a></ul>
+                <ul><a href="/pages/Button.html">Button</a></ul>
+                <ul><a href="/pages/Checkboxradio.html">Checkboxradio</a></ul>
+                <ul><a href="/pages/Controlgroup.html">Controlgroup</a></ul>
+                <ul><a href="/pages/Datepicker.html">Datepicker</a></ul>
+                <ul><a href="/pages/Dialog.html">Dialog</a></ul>
+                <ul><a href="/pages/Menu.html">Menu</a></ul>
+                <ul><a href="/pages/Progressbar.html">Progressbar</a></ul>
+                <ul><a href="/pages/Selectmenu.html">Selectmenu</a></ul>
+                <ul><a href="/pages/Slider.html">Slider</a></ul>
+                <ul><a href="/pages/Spinner.html">Spinner</a></ul>
+                <ul><a href="/pages/Tabs.html">Tabs</a></ul>
+                <ul><a href="/pages/Tooltip.html">Tooltip</a></ul>
+            
+        </div>
+     <dev class="menu">
+      <ul id="menu">
+        <li class="ui-state-disabled"><div class="ty">Toys (n/a)</div></li>
+        <li><div>Books</div></li>
+        <li><div>Clothing</div></li>
+        <li><div>Electronics</div>
+          <ul>
+            <li class="ui-state-disabled"><div>Home Entertainment</div></li>
+            <li><div>Car Hifi</div></li>
+            <li><div>Utilities</div></li>
+          </ul>
+        </li>
+        <li><div>Movies</div></li>
+        <li><div>Music</div>
+          <ul>
+            <li><div>Rock</div>
+              <ul>
+                <li><div>Alternative</div></li>
+                <li><div>Classic</div></li>
+              </ul>
+            </li>
+            <li><div>Jazz</div>
+              <ul>
+                <li><div>Freejazz</div></li>
+                <li><div>Big Band</div></li>
+                <li><div>Modern</div></li>
+              </ul>
+            </li>
+            <li><div>Pop</div></li>
+          </ul>
+        </li>
+        <li class="ui-state-disabled"><div>Specials (n/a)</div></li>
+      </ul>
+       
+     </dev>
+     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+     <script>
+      $( function() {
+        $( "#menu" ).menu();
+      } );
+      </script>
+      <style>
+      .ui-menu { width: 150px; }
+      </style>
+
+</body>
+</html>

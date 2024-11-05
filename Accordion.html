@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/custom.css">
+    <style>
+      
+#accordion {
+    flex: 3;
+    min-width: 0;
+}
+
+ul li {
+    list-style-type: none;
+    padding: 12px;
+    background-color: #1c1c1c;
+    color: #ff99cc;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+ul li:hover {
+    background-color: #333333;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .col-1, #accordion {
+        max-width: 100%;
+    }
+}
+</style>
+</head>
+<header>
+  <h1>jQuery UI Accordion - Sortable</h1>
+</header>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                <h3>widget</h3>
+                    <ul><a href="../Accordion.html">accordion</a></ul>
+                    <ul><a href="pages/Autocomplete.html">Autocomplete</a></ul>
+                    <ul><a href="pages/Button.html">Button</a></ul>
+                    <ul><a href="./pages/Checkboxradio.html">Checkboxradio</a></ul>
+                    <ul><a href="pages/Controlgroup.html">Controlgroup</a></ul>
+                    <ul><a href="pages/Datepicker.html">Datepicker</a></ul>
+                    <ul><a href="pages/Dialog.html">Dialog</a></ul>
+                    <ul><a href="pages/Menu.html">Menu</a></ul>
+                    <ul><a href="pages/Progressbar.html">Progressbar</a></ul>
+                    <ul><a href="pages/Selectmenu.html">Selectmenu</a></ul>
+                    <ul><a href="pages/Slider.html">Slider</a></ul>
+                    <ul><a href="pages/Spinner.html">Spinner</a></ul>
+                    <ul><a href="pages/Tabs.html">Tabs</a></ul>
+                    <ul><a href="pages/Tooltip.html">Tooltip</a></ul>
+                
+                
+            </div>
+            <div id="accordion">
+                <div class="group">
+                  <h3>Section 1</h3>
+                  <div>
+                    <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque.<br> 
+                        Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh.<br>
+                        Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. <br>
+                        Vestibulum a velit eu ante scelerisque vulputate.</p>
+                  </div>
+                </div>
+                <div class="group">
+                  <h3>Section 2</h3>
+                  <div>
+                    <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus.<br> 
+                        Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus<br>
+                         interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+                  </div>
+                </div>
+                <div class="group">
+                  <h3>Section 3</h3>
+                  <div>
+                    <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.<br> 
+                         Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac <br> 
+                         tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, <br> 
+                         quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
+                    <ul>
+                      <li>List item one</li>
+                      <li>List item two</li>
+                      <li>List item three</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="group">
+                  <h3>Section 4</h3>
+                  <div>
+                    <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus <br> 
+                        et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in<br> 
+                         faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est.<br> 
+                         </p><br>
+                   <p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.<br> 
+                     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>  
+    
+    <footer>
+        <p>College of Information and Computing Sciences &copy; 2022</p>  
+    </footer>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script>
+        $( function() {
+          $( "#accordion" )
+            .accordion({
+              header: "> div > h3"
+            })
+            .sortable({
+              axis: "y",
+              handle: "h3",
+              stop: function( event, ui ) {
+                // IE doesn't register the blur when sorting
+                // so trigger focusout handlers to remove .ui-state-focus
+                ui.item.children( "h3" ).triggerHandler( "focusout" );
+       
+                // Refresh accordion to handle new order
+                $( this ).accordion( "refresh" );
+              }
+            });
+        } );
+        </script>
+</body>
+</html>
